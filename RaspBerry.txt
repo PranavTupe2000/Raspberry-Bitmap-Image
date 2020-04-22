@@ -1,0 +1,76 @@
+to draw_circle :radius
+setpensize [ 5 5 ]
+pu
+repeat 360 [fd :radius
+		rt 90
+		pd
+		fd 2
+		pu
+		bk 2
+		lt 90
+		bk :radius
+		rt 1]
+end
+
+to draw_raspberry
+setscreencolor [ 0 255 0 ]
+draw_steam
+home
+setpencolor [255 0 255]
+pu
+rt 90
+bk 37
+multi_sphere 4
+home
+bk 22
+rt 90
+bk 25
+multi_sphere 3
+home
+bk 44
+rt 90
+bk 12.5
+multi_sphere 2
+home
+bk 66
+draw_sphere
+ht
+end
+
+to draw_sphere 
+draw_circle 10
+draw_circle 5
+draw_circle 1
+end
+
+to draw_steam
+pd
+setpencolor [0 0 0]
+rt 90
+fd 8
+lt 90
+fd 20
+rt 90
+fd 50
+lt 90
+fd 15
+lt 90
+fd 116
+lt 90
+fd 15
+lt 90
+fd 50
+rt 90
+fd 20
+home
+pu
+fd 20
+setfloodcolor[ 0 0 0 ]
+fill
+end
+
+to multi_sphere :num
+repeat :num [draw_sphere
+	 	fd 25]
+end
+
